@@ -13,6 +13,9 @@ const app = express();
 // Vamos a determinar la ruta para que corra la app
 const port = 3000;
 
+// Le decimos a espress que use un middleware nativo, para poder hacer post
+app.use(express.json());
+
 /*
 Vamos a definir la ruta(que va a ser esta misma carpeta), con un callback que va a ejecutar la respuesta que nosotros enviemos a nuestro cliente
 
