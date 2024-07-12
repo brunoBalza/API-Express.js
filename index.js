@@ -4,7 +4,6 @@ const express = require('express');
 const { faker } = require('@faker-js/faker');
 
 // Vamos a importar la funcion, en la cual trabajamos con las rutas
-
 const routerApi = require('./routes');
 
 // Vamos a crear la app por medio de express
@@ -12,6 +11,9 @@ const app = express();
 
 // Vamos a determinar la ruta para que corra la app
 const port = 3000;
+
+// importamos los middlewares
+const { logErrors, errorHandler } = require('./middlewares/errorHandler')
 
 // Le decimos a espress que use un middleware nativo, para poder hacer post
 app.use(express.json());
@@ -43,8 +45,11 @@ app.get('/categories/:categoryId/products/:productId', (req, res) => {
 Ahora debemos indicar en que puerto va a correr esto, para poder visualizar
 Tambien es posible agregar una función, para que esta nos este indicando que funciona, como sería el ejemplo de un console.log
 */
+routerApi(app);
+
+app.use(logErrors);
+app.use(errorHandler);
+
 app.listen(port, () => {
     console.log('Mi Port es:' + port);
 });
-
-routerApi(app);
