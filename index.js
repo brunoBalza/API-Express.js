@@ -13,7 +13,7 @@ const app = express();
 const port = 3000;
 
 // importamos los middlewares
-const { logErrors, errorHandler } = require('./middlewares/errorHandler')
+const { logErrors, errorHandler, boomErrorHandler } = require('./middlewares/errorHandler')
 
 // Le decimos a espress que use un middleware nativo, para poder hacer post
 app.use(express.json());
@@ -48,6 +48,7 @@ Tambien es posible agregar una función, para que esta nos este indicando que fu
 routerApi(app);
 
 app.use(logErrors);
+app.use(boomErrorHandler);
 app.use(errorHandler);
 
 app.listen(port, () => {
