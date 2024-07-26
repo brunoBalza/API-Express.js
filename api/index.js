@@ -48,13 +48,13 @@ Vamos a definir la ruta(que va a ser esta misma carpeta), con un callback que va
 en el CB tenemos 2 parametros, "req" y "res"
 */
 
-app.get('/', (req, res) => {
+app.get('/api', (req, res) => {
     res.send('Hi, this is my server using Express');
 });
 
 // selección de varios parámetros de url
 
-app.get('/categories/:categoryId/products/:productId', (req, res) => {
+app.get('/api/categories/:categoryId/products/:productId', (req, res) => {
     const { categoryId, productId } = req.params;
     res.json(
         {
