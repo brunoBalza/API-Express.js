@@ -14,7 +14,7 @@ const routerApi = require('./routes');
 const app = express();
 
 // Vamos a determinar la ruta para que corra la app
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 // importamos los middlewares
 const { logErrors, errorHandler, boomErrorHandler } = require('./middlewares/errorHandler');
@@ -51,19 +51,6 @@ en el CB tenemos 2 parametros, "req" y "res"
 app.get('/api', (req, res) => {
     res.send('Hi, this is my server using Express');
 });
-
-// selección de varios parámetros de url
-
-app.get('/api/categories/:categoryId/products/:productId', (req, res) => {
-    const { categoryId, productId } = req.params;
-    res.json(
-        {
-            categoryId,
-            productId
-        }
-    );
-});
-
  
 /* 
 Ahora debemos indicar en que puerto va a correr esto, para poder visualizar

@@ -9,7 +9,7 @@ class productsServices {
     }
 
     generate() {
-        const limit = 10;
+        const limit = 100;
         for (let index = 0; index < limit; index++) {
            this.products.push({
             id: faker.string.uuid(),
@@ -31,11 +31,7 @@ class productsServices {
     }
 
     find() {
-        return new Promise ((resolve, reject) => {
-            setTimeout(() => {
-                resolve(this.products);
-            }, 1000);
-        })
+        return this.products;
     }   
     
     findOne(id) {
