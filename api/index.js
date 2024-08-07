@@ -13,8 +13,11 @@ const routerApi = require('./routes');
 // Vamos a crear la app por medio de express
 const app = express();
 
+const { config } = require('./config/config')
+
 // Vamos a determinar la ruta para que corra la app
-const port = process.env.PORT || 3000;
+// const port = config.port;
+const port = 3000;
 
 // importamos los middlewares
 const { logErrors, errorHandler, boomErrorHandler } = require('./middlewares/errorHandler');
