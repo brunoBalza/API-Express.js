@@ -20,7 +20,7 @@ const { config } = require('./config/config')
 const port = 3000;
 
 // importamos los middlewares
-const { logErrors, errorHandler, boomErrorHandler } = require('./middlewares/errorHandler');
+const { logErrors, errorHandler, boomErrorHandler, ormErrorHandler } = require('./middlewares/errorHandler');
 // const { required } = require('joi');
 
 // Le decimos a espress que use un middleware nativo, para poder hacer post
@@ -64,6 +64,7 @@ routerApi(app);
 app.use(logErrors);
 app.use(boomErrorHandler);
 app.use(errorHandler);
+app.use(ormErrorHandler);
 
 app.listen(port, () => {
     console.log('Mi Port es:' + port);

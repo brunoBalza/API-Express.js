@@ -51,4 +51,4 @@ class Product extends Model {
   }
 }
 
-module.exports = {PRODUCT_TABLE, ProductSchema, Product}
+module.exports = { PRODUCT_TABLE, ProductSchema, Product }
